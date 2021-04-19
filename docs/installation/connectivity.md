@@ -272,6 +272,8 @@ Docker adds another level of complexity.
 
 To debug docker connectivity issues, we may use netcat as above to check port connections are working as expected. Double check that you are exposing the right ports to your local network, either by using the command line flags or in your docker-compose.yaml. You should be able to successfully check the connection locally using eg. `nc -zv localhost 1634` then follow instructions above to make sure your local network has the correct ports exposed to the internet.
 
+If your computer is directly connected to the Internet (that is, it has a public IP assigned to it), you may need to populate the BEE_NAT_ADDR configuration field with your public IP and port (like `BEE_NAT_ADDR=86.98.94.9:1634`). Even though docker is not performing NAT, the container only sees the bridge IP and can't use the public one for p2p.
+
 3. Something else entirely?
 
 Networking is a complex topic, but it keeps us all together. If you still can't connect to your Bee, get in touch via [The Beehive](http://beehive.ethswarm.org/) and we'll do our best to get you connected. In the swarm, no Bee is left behind. 
